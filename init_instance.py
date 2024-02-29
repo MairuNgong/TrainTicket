@@ -6,8 +6,8 @@ from init_class import *
 system = TicketReservationSystem()
 
 # * init member
-member1 = Member("Kim")
-member2 = Member("Boat")
+member1 = Member("Kim","001","kim123")
+member2 = Member("Boat","002","boat123")
 # * init station
 A_station = Station("A")
 B_station = Station("B")
