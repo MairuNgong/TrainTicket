@@ -256,7 +256,7 @@ class TicketReservationSystem:
                     "Destination": reservation.get_destination_station().get_station_name(),
                     "Departure time": seat_inUse_list[0].get_departure_time(),
                     "Destination time": seat_inUse_list[0].get_destination_time(),
-                    "Date": reservation.date,
+                    "Date": reservation.get_departure_date(),
                     "reservation_id": reservation.get_reservation_id(),
                     "price": reservation.get_price()
             }
@@ -374,7 +374,7 @@ class Reservation:
         return self.__price
     
     def get_reservation_id(self):
-        return self.__id
+        return self.__reservation_id
 
 class User:
     def __init__(self):
@@ -537,8 +537,8 @@ class Payment:
         self.__method = method
         self.__coupon = None
 
-    def apply_coupon(self, payment):
-        self.__coupon = payment.coupon
+    def apply_coupon(self, coupon):
+        self.__coupon = coupon
 
 #add
 class Meal_Reservation :

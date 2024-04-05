@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 import uvicorn
 from fastapi import FastAPI, Query, Path, Form
 import json
@@ -31,8 +31,8 @@ async def choose_seat(member: str, train_id: str, bogie_id: str, departure: str,
     reservation = system.choose_seat(member,train_id, bogie_id, departure, destination, departure_time, destination_time, date, seat_list)
     return reservation
 
-@app.get("/meal")
-async def choose_meal(reservation_id: str, total_price_by_adding_food_from_UI: int, meal_form : list[dict[str: str]] = Form(...)) : 
+@app.post("/meal")
+async def choose_meal(reservation_id: str, total_price_by_adding_food_from_UI: int, meal_form: List[Dict[str, str]] = Form(...)):
     summary_data = system.choose_meal(reservation_id, total_price_by_adding_food_from_UI, meal_form)
     return summary_data
 
